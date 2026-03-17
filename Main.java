@@ -1,3 +1,5 @@
+package ToDo;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -103,19 +105,24 @@ public class Main {
         }
     }
 
-    private boolean isValidTaskName(String input){
-        if()
+    private boolean isValidTaskName(String input) {
+        if (input == null) {
+            return false;
+        }
+        return !isBlankOrSpaces(input);
     }
 
-    private boolean isBlankOrSpaces(String input){
-        for(int i=0;i<input.length();i++){
-            Character.isWhitespace(str.charAt(0));
-            if(ch == false){
-                return false;
-            }else{
-                return true;
-            }
-            
+    private boolean isBlankOrSpaces(String input) {
+        if (input == null || input.length() == 0) {
+            return true;
         }
+
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+            if (!Character.isWhitespace(ch)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
